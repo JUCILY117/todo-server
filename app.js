@@ -45,7 +45,7 @@ app.post("/register", async (req, res) => {
       fname,
       lname,
       email,
-      password: encryptedPassword,
+      password,
       userType,
     });
     res.send({ status: "ok" });
