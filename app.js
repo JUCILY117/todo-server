@@ -14,7 +14,7 @@ var nodemailer = require("nodemailer");
 const JWT_SECRET ="18313d01a0a7def16645a409dd7f24376ddeea0758f943c0d9bf36ed30a25fe42d1cd8f4bb88b2ba654498ef64b0c5af4c9c2f93279f4acdb547ec8011ff09f4";
 
 const mongoUrl =
-  "mongodb://localhost:27017/data_set";
+  "mongodb+srv://aayu:jeo57DSSXydei2FE@todo.2zrpwdb.mongodb.net/data_set";
 
 mongoose
   .connect(mongoUrl, {
@@ -72,7 +72,7 @@ app.post("/login-user", async (req, res) => {
       return res.json({ error: "error" });
     }
   }
-  res.json({ status: "error", error: "InvAlid Password" });
+  res.json({ status: "error", error: "Invalid Password" });
 });
 
 app.post("/userData", async (req, res) => {
@@ -101,7 +101,7 @@ app.post("/userData", async (req, res) => {
 });
 
 app.listen(5000, () => {
-  console.log("Server Started");
+  console.log("Server Started on port");
 });
 
 app.post("/forgot-password", async (req, res) => {
