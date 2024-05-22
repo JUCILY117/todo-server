@@ -45,7 +45,7 @@ app.post("/register", async (req, res) => {
       fname,
       lname,
       email,
-      password,
+      password: encryptedPassword,
       userType,
     });
     res.send({ status: "ok" });
@@ -61,7 +61,7 @@ app.post("/login-user", async (req, res) => {
   if (!user) {
     return res.json({ error: "User Not found" });
   }
-  if (password, user.password) {
+  if (await bcrypt.compare(password, user.password)) {
     const token = jwt.sign({ email: user.email }, JWT_SECRET, {
       expiresIn: "15m",
     });
